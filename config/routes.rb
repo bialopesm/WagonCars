@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   # Index cars
-  get "cars", to: "cars#index"
+  get "/cars", to: "cars#index"
   # Edit a car
-  get "cars/:id/edit", to: "cars#edit"
+  get "/cars/:id/edit", to: "cars#edit"
   # Update car
-  patch "cars/:id", to: "cars#update"
+  patch "/cars/:id", to: "cars#update"
   # Delete cars
-  delete "cars/:id", to: "cars#destroy"
+  delete "/cars/:id", to: "cars#destroy"
 end

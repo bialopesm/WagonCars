@@ -1,18 +1,18 @@
 class CarsController < ApplicationController
-<<<<<<< HEAD
 
   def index
     @cars = Car.all
   end
 
   def edit
-=======
+    @car = Car.find(params[:id])
+  end
+
   def new
     @car = Car.new
   end
 
   def show
->>>>>>> master
     @car = Car.find(params[:id])
   end
 
@@ -22,15 +22,12 @@ class CarsController < ApplicationController
     redirect_to car_path(@car)
   end
 
-<<<<<<< HEAD
   def destroy
     @car = Car.find(params[:id])
     @car.destroy
     redirect_to cars_path, status: :see_other
   end
 
-=======
->>>>>>> master
   private
 
   def car_params
