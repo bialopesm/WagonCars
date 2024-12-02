@@ -3,6 +3,17 @@ class CarsController < ApplicationController
     @car = Car.new
   end
 
+  def create
+    @car = Car.new(car_params)
+    @car.user = current_user
+    if @car.save
+      redirect_to car_path(@car), notice: 'Car was successfully created.'
+    else
+      flash.now[:alert] = 'There was an error creating the car. Please try again.'
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def show
     @car = Car.find(params[:id])
   end
