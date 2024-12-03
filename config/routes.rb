@@ -10,12 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  # Index cars
-  get "/cars", to: "cars#index"
-  # Edit a car
-  get "/cars/:id/edit", to: "cars#edit"
-  # Update car
-  patch "/cars/:id", to: "cars#update"
-  # Delete cars
-  delete "/cars/:id", to: "cars#destroy"
+  resources :cars do
+    resources :rentals, only: [:new, :create, :show]
+  end
 end
