@@ -30,9 +30,13 @@ class CarsController < ApplicationController
 
   def update
     @car = Car.find(params[:id])
-    @car.update(car_params)
     @car.picture.attach(params[:car][:picture]) if params[:car][:picture].present?
-    redirect_to car_path(@car)
+    if @car.update(car_params)
+      redirect_to car_path(@car), notice: 'Car was successfully updated.'
+    else
+      flash.now[:alert] = 'There was an error updating the car. Please try again.'
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

@@ -2,7 +2,7 @@
 <%= simple_form_for(@car) do |f| %>
   <%= f.input :model %>
   <%= f.input :year %>
-  <%= f.input :category %>
+  <%= f.input :category, collection: Car::CATEGORY %>
   <%= f.input :location %>
   <%= f.submit "Create Car" %>
 <% end %>
