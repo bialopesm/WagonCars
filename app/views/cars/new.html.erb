@@ -1,0 +1,9 @@
+<h1>Create a new car</h1>
+<%= simple_form_for(@car) do |f| %>
+  <%= f.input :model %>
+  <%= f.input :year %>
+  <%= f.input :category %>
+  <%= f.input :location %>
+  <%= f.submit "Create Car" %>
+<% end %>
+<%= link_to "Back", cars_path %>
