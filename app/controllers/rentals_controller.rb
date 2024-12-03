@@ -4,6 +4,10 @@ class RentalsController < ApplicationController
     @rental = Rental.new
   end
 
+  def show
+
+  end
+
   def create
     @car = Car.find(params[:car_id])
     @rental = @car.rentals.build(rental_params)
