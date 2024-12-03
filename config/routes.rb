@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  # Route for Pages#home
-  # get 'home', to: 'pages#home'
 
-   # Route for Cars#create
-  post 'cars', to: 'cars#create'
+  resources :cars do
+    resources :rentals, only: [:new, :create, :show]
+  end
+
 end
