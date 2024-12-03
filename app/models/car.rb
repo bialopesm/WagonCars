@@ -1,6 +1,7 @@
 class Car < ApplicationRecord
   belongs_to :user
   has_one_attached :picture
+  CATEGORY = ['Compact', 'Minicompact', 'Midsize', 'Large', 'Minivan', 'Small SUV', 'SUV']
 
   validates :model, :year, :category, :location, :quality, :color, :picture, presence: true
   validates :year, numericality: {
