@@ -1,12 +1,5 @@
 <h1>Edit page</h1>
 
-<%= simple_form_for(@car, html: { multipart: true }) do |f| %>
-  <%= f.input :model %>
-  <%= f.input :year %>
-  <%= f.input :category %>
-  <%= f.input :location %>
-  <%= f.input :quality %>
-  <%= f.input :color %>
-  <%= f.input :picture, as: :file %>
-  <%= f.submit %>
-<% end %>
+
+<%= render "form", car: @car %>
+
