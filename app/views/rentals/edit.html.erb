@@ -1,0 +1,10 @@
+<h1>Edit the Rental</h1>
+
+<%= simple_form_for(@rental) do |f| %>
+  <%= f.input :model %>
+  <%= f.input :year %>
+  <%= f.input :category %>
+  <%= f.input :location %>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Rental Details</h1>
+<p><strong>Model:</strong> <%= @.model %></p>
+<p><strong>Year:</strong> <%= @rental.year %></p>
+<p><strong>Category:</strong> <%= @rental.category %></p>
+<p><strong>Location:</strong> <%= @rental.location %></p>
+<p><strong>Owner:</strong> <%= @rental.user.email %></p>
+
+<%= link_to 'Edit', edit_rental_path(@rental) %> |
+<%= link_to 'Back to list', rentals_path %>
