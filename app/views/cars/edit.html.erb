@@ -1,6 +1,6 @@
 <h1>Edit page</h1>
 
-<%= simple_form_for(@car) do |f| %>
+<%= simple_form_for(@car, html: { multipart: true }) do |f| %>
   <%= f.input :model %>
   <%= f.input :year %>
   <%= f.input :category %>
@@ -8,6 +8,6 @@
   <%= f.input :quality %>
   <%= f.input :color %>
   <%= f.input :rating %>
-  <%= f.input :picture %>
+  <%= f.input :picture, as: :file %>
   <%= f.submit %>
 <% end %>

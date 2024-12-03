@@ -1,4 +1,6 @@
-<h1> Our cars available</h1>
+<h1>Our cars available</h1>
+
+<%= link_to 'Add New Car', new_car_path, class: 'btn btn-primary' %>
 
 <ul>
   <% @cars.each do |car| %>

@@ -1,4 +1,10 @@
 <h1>Car Details</h1>
+<p>
+<% if @car.picture.attached? %>
+  <p><strong>Picture:</strong></p>
+  <%= image_tag @car.picture, alt: "Picture of #{@car.model}", class: "img-fluid w-25" %>
+<% end %>
+</p>
 <p><strong>Model:</strong> <%= @car.model %></p>
 <p><strong>Year:</strong> <%= @car.year %></p>
 <p><strong>Category:</strong> <%= @car.category %></p>
@@ -6,4 +12,5 @@
 <p><strong>Owner:</strong> <%= @car.user.email %></p>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back to list', cars_path %>
+<%= link_to 'Back to list', cars_path %> |
+<%= link_to 'Delete', car_path(@car), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this car?' } %>
