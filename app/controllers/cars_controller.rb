@@ -15,6 +15,7 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     @car.user = current_user
+    @car.picture.attach(params[:car][:picture])
     if @car.save
       redirect_to car_path(@car), notice: 'Car was successfully created.'
     else
@@ -29,8 +30,13 @@ class CarsController < ApplicationController
 
   def update
     @car = Car.find(params[:id])
-    @car.update(car_params)
-    redirect_to car_path(@car)
+    @car.picture.attach(params[:car][:picture]) if params[:car][:picture].present?
+    if @car.update(car_params)
+      redirect_to car_path(@car), notice: 'Car was successfully updated.'
+    else
+      flash.now[:alert] = 'There was an error updating the car. Please try again.'
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -42,7 +48,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:model, :year, :category, :location, :quality, :color, :rating, :picture)
+    params.require(:car).permit(:model, :year, :category, :location, :quality, :color, :rating)
   end
 
 end
