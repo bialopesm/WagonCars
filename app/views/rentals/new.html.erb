@@ -1,0 +1,6 @@
+<h1>Create a rental car</h1>
+<%= simple_form_for([@car, @rental]) do |f| %>
+  <%= f.input :date %>
+
+  <%= f.submit "Create a rental" %>
+<% end %>
