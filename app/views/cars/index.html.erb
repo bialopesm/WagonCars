@@ -1,9 +1,31 @@
-<h1>Our cars available</h1>
+<div class="top">
+  <div class="d-flex justify-content-end">
+  <%= link_to 'Add New Car', new_car_path, class: 'btn btn-primary mt-3 mx-3' %>
+  </div>
+  <h1 class="title-index m-3 p-3">Drive the car of your dreams</h1>
+<div class="container-fluid">
+  <div class="row py-3">
+    <% @cars.each do |car| %>
+    <div class="col-3">
+      <div class="card card-yellow p-3 mb-2">
+        <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top border" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to car.model, car_path(car), class: "text-decoration-none" %></h5>
+          <p class="card-text">Year : <%= car.year %></p>
+          <h5><%= link_to "Book it now !", car_path(car), class: "text-decoration-none btn btn-success" %></h5>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+</div>
 
-<%= link_to 'Add New Car', new_car_path, class: 'btn btn-primary' %>
-
-<ul>
-  <% @cars.each do |car| %>
-    <li><%= link_to car.model, car_path(car) %></li>
-  <% end %>
-</ul>
+      <%# t.string :model
+      t.integer :year
+      t.string :category
+      t.string :location
+      t.string :quality
+      t.string :color
+      t.integer :rating
+      t.string :picture %>
