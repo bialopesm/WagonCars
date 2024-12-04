@@ -14,6 +14,7 @@
   <h3> My Rentals</h3>
   <% current_user.rentals.each do |rental|%>
   <div class="">
+  <%= rental.car.model %>
     <div>
       Pick up date : <%= rental.pickup_date %>
     </div>
@@ -31,12 +32,17 @@
   <% current_user.cars.each do |car|%>
     <div class="">
       <%= car.model %>
+      <%= link_to 'Edit', edit_car_path(car), class: "btn btn-warning" %>
+      <%= link_to "Delete",
+        car_path(car),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+        class: "btn btn-danger"
+      %>
+
     </div>
   <% end %>
 </div>
 </div>
 </div>
-
-
 
 <%= link_to "Back", cars_path, class: "btn btn-secondary m-3"%>

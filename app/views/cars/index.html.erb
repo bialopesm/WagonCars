@@ -15,6 +15,8 @@
         <div class="card-body">
           <h5 class="card-title"><%= link_to car.model, car_path(car), class: "text-decoration-none" %></h5>
           <p class="card-text">$/day : <%= car.price_day %></p>
+          <p class="card-text">N. of seats : <%= car.number_of_seats %></p>
+          <p class="card-text"><%= car.description %></p>
           <h5><%= link_to "Book it now !", car_path(car), class: "text-decoration-none btn btn-success" %></h5>
         </div>
       </div>
