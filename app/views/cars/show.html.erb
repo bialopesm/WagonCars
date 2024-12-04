@@ -14,23 +14,23 @@
   <div class="card shadow-sm">
     <div class="card-body">
       <h3 class="text-center"><strong>Details</strong></h3>
-      <p><strong>Model:</strong> <%= @car.model %></p>
-      <p><strong>Year:</strong> <%= @car.year %></p>
-      <p><strong>Color:</strong> <%= @car.color %></p>
-      <p><strong>Category:</strong> <%= @car.category %></p>
-      <p><strong>Location:</strong> <%= @car.location %></p>
-      <p><strong>Owner:</strong> <%= @car.user.email %></p>
-      <p><strong>Fuel:</strong> <%= @car.fuel %></p>
-      <p><strong>Number of Seats:</strong> <%= @car.number_of_seats %></p>
-      <p><strong>Description:</strong> <%= @car.description %></p>
+      <p><i class="fa-solid fa-car-side"></i> <%= @car.model %></p>
+      <p><i class="fa-regular fa-calendar-days"></i> <%= @car.year %></p>
+      <p><i class="fa-solid fa-palette"></i> <%= @car.color %></p>
+      <p><i class="fa-solid fa-layer-group"></i> <%= @car.category %></p>
+      <p><i class="fa-solid fa-location-dot"></i> <%= @car.location %></p>
+      <p><i class="fa-solid fa-gas-pump"></i> <%= @car.fuel %></p>
+      <p><i class="fa-solid fa-person"></i> <%= @car.number_of_seats %> seats </p>
+      <p><i class="fa-solid fa-user"></i> <%= @car.user.email %></p>
+      <p><i class="fa-solid fa-file-lines"></i> <%= @car.description %></p>
     </div>
   </div>
 </div>
 
   <div class="row mt-3">
     <div class="col-md-8 text-center">
-      <h3 class="text-center"><strong>Price / day</strong></h3>
-      <p>R$<%= @car.price_day %></p>
+      <h3 class="text-center"><strong><i class="fa-solid fa-dollar-sign"></i> / day</strong></h3>
+      <p>$<%= @car.price_day %></p>
     </div>
 
     <div class="col-md-4">
