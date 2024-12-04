@@ -1,5 +1,8 @@
+
+
 <div class="top">
   <div class="d-flex justify-content-end">
+  <%= link_to "My profile", user_path(current_user), class: 'btn btn-primary mt-3 mx-3' %>
   <%= link_to 'Add New Car', new_car_path, class: 'btn btn-primary mt-3 mx-3' %>
   </div>
   <h1 class="title-index m-3 p-3">Drive the car of your dreams</h1>
@@ -20,12 +23,3 @@
   </div>
 </div>
 </div>
-
-      <%# t.string :model
-      t.integer :year
-      t.string :category
-      t.string :location
-      t.string :quality
-      t.string :color
-      t.integer :rating
-      t.string :picture %>
