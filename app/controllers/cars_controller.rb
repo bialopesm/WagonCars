@@ -19,6 +19,7 @@ class CarsController < ApplicationController
     if @car.save
       redirect_to car_path(@car), notice: 'Car was successfully created.'
     else
+      puts @car.errors.full_messages
       flash.now[:alert] = 'There was an error creating the car. Please try again.'
       render :new, status: :unprocessable_entity
     end
@@ -42,13 +43,13 @@ class CarsController < ApplicationController
   def destroy
     @car = Car.find(params[:id])
     @car.destroy
-    redirect_to cars_path, status: :see_other
+    redirect_to user_path(current_user), status: :see_other
   end
 
   private
 
   def car_params
-    params.require(:car).permit(:model, :year, :category, :location, :quality, :color, :rating)
+    params.require(:car).permit(:model, :year, :category, :location, :color, :fuel, :number_of_seats, :description, :picture, :price_day, :rating)
   end
 
 end

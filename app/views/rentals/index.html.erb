@@ -1,0 +1,14 @@
+<h1>My rentals</h1>
+
+<% @rentals.each do |rental| %>
+  <div class="card">
+    <div>
+      Pick up date : <%= rental.pickup_date %>
+    </div>
+    <div>
+      Delivered date : <%= rental.delivered_date %>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to "Back", cars_path %>

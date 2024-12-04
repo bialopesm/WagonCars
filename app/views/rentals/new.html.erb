@@ -1,5 +1,6 @@
-<h1>Create a rental car</h1>
+<h1>Create a Reservation</h1>
 <div data-controller = "calculator">
+
 <%= simple_form_for([@car, @rental]) do |f| %>
 
   <%= f.input :pickup_date, as: :string, input_html: { data: { calculator_target: 'startDate', controller: "datepicker", action: "change->calculator#updateTotalPrice" } } %>
@@ -9,6 +10,11 @@
 
   <p>Total price: <span data-calculator-target="totalprice">0</span></p>
 
+
   <%= f.submit "Create a rental" %>
+
+  <div class="mt-3">
+    <%= link_to "Back to Cars List", cars_path, class: "btn btn-secondary" %>
+  </div>
 <% end %>
 </div>

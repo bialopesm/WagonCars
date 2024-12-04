@@ -1,5 +1,8 @@
+
+
 <div class="top">
   <div class="d-flex justify-content-end">
+  <%= link_to "My profile", user_path(current_user), class: 'btn btn-primary mt-3 mx-3' %>
   <%= link_to 'Add New Car', new_car_path, class: 'btn btn-primary mt-3 mx-3' %>
   </div>
   <h1 class="title-index m-3 p-3">Drive the car of your dreams</h1>
@@ -11,7 +14,9 @@
         <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top border" %>
         <div class="card-body">
           <h5 class="card-title"><%= link_to car.model, car_path(car), class: "text-decoration-none" %></h5>
-          <p class="card-text">Year : <%= car.year %></p>
+          <p class="card-text">$/day : <%= car.price_day %></p>
+          <p class="card-text">N. of seats : <%= car.number_of_seats %></p>
+          <p class="card-text"><%= car.description %></p>
           <h5><%= link_to "Book it now !", car_path(car), class: "text-decoration-none btn btn-success" %></h5>
         </div>
       </div>
@@ -20,12 +25,3 @@
   </div>
 </div>
 </div>
-
-      <%# t.string :model
-      t.integer :year
-      t.string :category
-      t.string :location
-      t.string :quality
-      t.string :color
-      t.integer :rating
-      t.string :picture %>
