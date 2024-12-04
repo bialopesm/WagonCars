@@ -1,5 +1,11 @@
-<h1>Edit page</h1>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Edit your car</h1>
 
+  <div class="card shadow-sm p-4">
+    <%= render "form", car: @car %>
+  </div>
 
-<%= render "form", car: @car %>
-
+  <div class="mt-3">
+    <%= link_to "Back to Cars List", cars_path, class: "btn btn-secondary" %>
+  </div>
+</div>
