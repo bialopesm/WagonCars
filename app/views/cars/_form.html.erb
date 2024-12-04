@@ -1,14 +1,22 @@
 
 <%= simple_form_for(car) do |f| %>
-  <%= f.input :model %>
-  <%= f.input :year %>
-  <%= f.input :color %>
+  <%= f.input :model, placeholder: "Ex.: Honda, CiberTruck, Mitsubishi..." %>
+  <%= f.input :year, placeholder: "Ex.: 1995, 2000...." %>
+  <%= f.input :color, placeholder: "Ex.: Black, White, Red, Gray...." %>
   <%= f.input :category, collection: Car::CATEGORIES%>
-  <%= f.input :location %>
+  <%= f.input :location, placeholder: "Ex.: Street, Number, Neighborhood, City, State"%>
   <%= f.input :fuel, collection: Car::FUELS%>
-  <%= f.input :number_of_seats %>
-  <%= f.input :price_day %>
-  <%= f.input :description %>
+  <%= f.input :number_of_seats, placeholder: "Insert only numbers" %>
+
+    <div class="mb-3">
+      <label for="car_price_day" class="form-label">Price/day</label>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">$</span>
+        <input type="text" class="form-control" placeholder="Enter price per day" aria-label="Enter price per day" aria-describedby="addon-wrapping">
+      </div>
+    </div>
+
+  <%= f.input :description, placeholder: "Ex.: leather seats, insuranse...." %>
   <%= f.input :picture %>
   <%= f.submit "Save" %>
 <% end %>
