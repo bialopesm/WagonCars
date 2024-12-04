@@ -11,7 +11,7 @@
         <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top border" %>
         <div class="card-body">
           <h5 class="card-title"><%= link_to car.model, car_path(car), class: "text-decoration-none" %></h5>
-          <p class="card-text">Year : <%= car.year %></p>
+          <p class="card-text">$/day : <%= car.price_day %></p>
           <h5><%= link_to "Book it now !", car_path(car), class: "text-decoration-none btn btn-success" %></h5>
         </div>
       </div>
