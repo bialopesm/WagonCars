@@ -1,0 +1,42 @@
+<h1 class="m-3">Your profile</h1>
+
+<div class="m-3">
+  Current user : <%= current_user.email %>
+  <%= current_user.address %>
+  <%= current_user.user_name %>
+</div>
+
+
+<div class="row">
+
+<div class="col-6">
+  <div class="mx-3">
+  <h3> My Rentals</h3>
+  <% current_user.rentals.each do |rental|%>
+  <div class="">
+    <div>
+      Pick up date : <%= rental.pickup_date %>
+    </div>
+    <div>
+      Delivered date : <%= rental.delivered_date %>
+    </div>
+  </div>
+<% end %>
+</div>
+  </div>
+
+<div class="col-6">
+  <div class="mx-3">
+  <h3>My Cars</h3>
+  <% current_user.cars.each do |car|%>
+    <div class="">
+      <%= car.model %>
+    </div>
+  <% end %>
+</div>
+</div>
+</div>
+
+
+
+<%= link_to "Back", cars_path, class: "btn btn-secondary m-3"%>

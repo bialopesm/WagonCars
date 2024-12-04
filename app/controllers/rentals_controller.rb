@@ -1,11 +1,16 @@
 class RentalsController < ApplicationController
+
+  def index
+    @rentals = Rental.all
+  end
+
   def new
     @car = Car.find(params[:car_id])
     @rental = Rental.new
   end
 
   def show
-
+    @rental = Rental.find(params[:id])
   end
 
   def create
@@ -14,10 +19,11 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     @rental.car = @car
 
-    if @rental.save!
+    if @rental.save
       redirect_to car_path(@car), notice: 'Rental created.'
     else
-      render :new, alert: 'Error.'
+      flash.now[:alert] = 'There was an error creating the rental. Please try again.'
+      render :new, status: :unprocessable_entity
     end
   end
 
