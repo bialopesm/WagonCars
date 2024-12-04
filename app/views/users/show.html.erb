@@ -21,6 +21,13 @@
     <div>
       Delivered date : <%= rental.delivered_date %>
     </div>
+    <div>
+      <%= link_to "Cancel",
+        rental_path(rental),
+        data: {turbo_method: :delete, turbo_confirm: "No refund permited"},
+        class: "btn btn-danger"
+      %>
+    </div>
   </div>
 <% end %>
 </div>
