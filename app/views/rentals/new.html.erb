@@ -1,6 +1,12 @@
 <h1>Create a rental car</h1>
 <%= simple_form_for([@car, @rental]) do |f| %>
-  <%= f.input :date %>
+  <%# <%= f.input :pickup_date %>
+  <%#= f.input :delivered_date %>
+
+  <%= f.input :pickup_date, as: :string, input_html: { data: { controller: "datepicker"} } %>
+  <%= f.input :delivered_date, as: :string, input_html: { data: { controller: "datepicker"} } %>
+
+  <p>Price per day: <%= @car.price_day %></p>
 
   <%= f.submit "Create a rental" %>
 <% end %>
