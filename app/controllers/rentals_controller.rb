@@ -30,7 +30,7 @@ class RentalsController < ApplicationController
   def destroy
     @rental = Rental.find(params[:id])
     @rental.destroy
-    redirect_to cars_path, notice: 'Rental deleted.'
+    redirect_to user_path(current_user), notice: 'Rental deleted.'
   end
 
   private
