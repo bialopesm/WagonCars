@@ -20,7 +20,7 @@ class RentalsController < ApplicationController
     @rental.car = @car
 
     if @rental.save
-      redirect_to car_path(@car), notice: 'Rental created.'
+      redirect_to user_path(current_user), notice: 'Rental created.'
     else
       flash.now[:alert] = 'There was an error creating the rental. Please try again.'
       render :new, status: :unprocessable_entity
