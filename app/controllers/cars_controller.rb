@@ -43,7 +43,7 @@ class CarsController < ApplicationController
   def destroy
     @car = Car.find(params[:id])
     @car.destroy
-    redirect_to cars_path, status: :see_other
+    redirect_to user_path(current_user), status: :see_other
   end
 
   private
