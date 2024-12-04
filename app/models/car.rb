@@ -13,7 +13,7 @@ class Car < ApplicationRecord
     less_than_or_equal_to: -> { Date.current.year }
   }
 
-  validates :description, length: { maximum: 10 }
+  validates :description, length: { maximum: 50 }
 
   validates :price_day, numericality: { greater_than_or_equal_to: 0 }
 
