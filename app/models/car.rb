@@ -19,6 +19,8 @@ class Car < ApplicationRecord
 
   validates :number_of_seats, numericality: { only_integer: true, greater_than: 0 }
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 
   def unavailable_dates
     rentals.pluck(:pickup_date, :delivered_date).map do |range|
