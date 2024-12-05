@@ -38,7 +38,7 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @car.picture.attach(params[:car][:picture]) if params[:car][:picture].present?
     if @car.update(car_params)
-      redirect_to car_path(@car), notice: 'Car was successfully updated.'
+      redirect_to user_path(current_user), notice: 'Car was successfully updated.'
     else
       flash.now[:alert] = 'There was an error updating the car. Please try again.'
       render :edit, status: :unprocessable_entity
