@@ -14,7 +14,7 @@
     <div class="col-md-8">
       <% if @car.picture.attached? %>
         <div class="mb-3 h-100">
-          <%= image_tag @car.picture, class: "img-fluid rounded w-100 h-100 shadow-sm" %>
+          <%= cl_image_tag @car.picture.key, class: "img-fluid rounded w-100 h-100 shadow-sm" %>
         </div>
       <% end %>
     </div>
