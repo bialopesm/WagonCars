@@ -1,11 +1,14 @@
 
 <%= simple_form_for(car) do |f| %>
-  <%= f.input :model %>
-  <%= f.input :year %>
+  <%= f.input :model, placeholder: "Ex.: Honda, CiberTruck, Mitsubishi..." %>
+  <%= f.input :year, placeholder: "Ex.: 1995, 2000...." %>
+  <%= f.input :color, placeholder: "Ex.: Black, White, Red, Gray...." %>
   <%= f.input :category, collection: Car::CATEGORIES%>
-  <%= f.input :location %>
-  <%= f.input :quality %>
-  <%= f.input :color %>
+  <%= f.input :location, placeholder: "Ex.: Street, Number, Neighborhood, City, State"%>
+  <%= f.input :fuel, collection: Car::FUELS%>
+  <%= f.input :number_of_seats, placeholder: "Insert only numbers" %>
+  <%= f.input :price_day, placeholder: "$" %>
+  <%= f.input :description, placeholder: "Ex.: leather seats, insuranse...." %>
   <%= f.input :picture %>
-  <%= f.submit %>
+  <%= f.submit "Save" %>
 <% end %>

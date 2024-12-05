@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_12_04_173109) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,7 +48,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_04_173109) do
     t.integer "year"
     t.string "category"
     t.string "location"
-    t.string "quality"
     t.string "color"
     t.integer "rating"
     t.string "picture"
@@ -55,6 +55,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_04_173109) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_day"
+    t.string "fuel"
+    t.integer "number_of_seats"
+    t.string "description"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 

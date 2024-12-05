@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
 
   resources :cars do
-    resources :rentals, only: [:new, :create, :show, :delete]
+    resources :rentals, only: [:new, :create, :show]
   end
+  resources :users, only: [:show]
+  resources :rentals, only: [:destroy]
 end

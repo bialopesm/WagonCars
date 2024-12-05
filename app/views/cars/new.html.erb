@@ -1,7 +1,13 @@
-<h1>Create a new car</h1>
+  <div class="mt-3">
+  <%= link_to cars_path, class: "btn btn-ghost" do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+  </div>
 
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Create a New Car</h1>
 
-<%= render "form", car: @car %>
-
-
-<%= link_to "Back", cars_path %>
+  <div class="card shadow-sm p-4">
+    <%= render "form", car: @car %>
+  </div>
+</div>
