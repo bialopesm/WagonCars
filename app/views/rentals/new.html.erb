@@ -7,7 +7,7 @@
 <h1>Create a Reservation</h1>
 <div data-controller = "calculator">
 
-<%= simple_form_for([@car, @rental]) do |f| %>
+<%= simple_form_for([@car, @rental], data: { unavailable_dates: @car.unavailable_dates.to_json }) do |f| %>
 
   <%= f.input :pickup_date, as: :string, input_html: { data: { calculator_target: 'startDate', controller: "datepicker", action: "change->calculator#updateTotalPrice" } } %>
   <%= f.input :delivered_date, as: :string, input_html: { data: { calculator_target: 'endDate', controller: "datepicker", action: "change->calculator#updateTotalPrice" } } %>
