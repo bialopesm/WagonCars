@@ -1,3 +1,9 @@
+<div class="mt-3">
+  <%= link_to cars_path, class: "btn btn-ghost" do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+</div>
+
 <h1>Create a Reservation</h1>
 <div data-controller = "calculator">
 
@@ -12,9 +18,5 @@
 
 
   <%= f.submit "Create a rental", class:"btn btn-primary"%>
-
-  <div class="mt-3">
-    <%= link_to "Back to Cars List", cars_path, class: "btn btn-secondary" %>
-  </div>
 <% end %>
 </div>
