@@ -1,28 +1,33 @@
 <div class="top">
-
-  <h1 class="title-index m-3 p-3">Drive the car of your dreams</h1>
+<header class="bg-dark text-white py-4">
+    <div class="container text-center">
+        <h1>WagonCars</h1>
+        <p>Drive the car of your dreams</p>
+    </div>
+</header>
 <div class="container-fluid">
   <div class="row py-3">
     <% @cars.each do |car| %>
-      <div class="col-3 mb-3">
-        <div class="card card-yellow p-3 mb-2 h-100">
-          <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top border" %>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">
-              <%= link_to car.model, car_path(car), class: "text-decoration-none" %>
+      <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card bg-white shadow-sm border-0 rounded h-100">
+          <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top rounded" %>
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title mb-2 font-weight-bold">
+              <%= link_to car.model, car_path(car), class: "text-dark text-decoration-none" %>
             </h5>
-            <p class="card-text"><i class="fa-solid fa-dollar-sign"></i> <%= car.price_day %></p>
-            <p class="card-text"><i class="fa-solid fa-person"></i> <%= car.number_of_seats %></p>
-            <p class="card-text"><%= car.description %></p>
+            <p class="card-text mb-1 text-muted">
+              <i class="fa-solid fa-dollar-sign"></i> <%= car.price_day %> per day
+            </p>
+            <p class="card-text mb-1 text-muted">
+              <i class="fa-solid fa-person"></i> Seats: <%= car.number_of_seats %>
+            </p>
+            <p class="card-text text-muted small"><%= car.description %></p>
             <div class="mt-auto">
-              <h5>
-                <%= link_to "Book it now!", car_path(car), class: "text-decoration-none btn btn-success w-100" %>
-              </h5>
+              <%= link_to "Book it now!", car_path(car), class: "btn btn-dark w-100 py-2 mt-3" %>
             </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-</div>
 </div>
