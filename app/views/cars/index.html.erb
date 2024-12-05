@@ -4,18 +4,24 @@
 <div class="container-fluid">
   <div class="row py-3">
     <% @cars.each do |car| %>
-    <div class="col-3">
-      <div class="card card-yellow p-3 mb-2">
-        <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top border" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= link_to car.model, car_path(car), class: "text-decoration-none" %></h5>
-          <p class="card-text"><i class="fa-solid fa-dollar-sign"></i> <%= car.price_day %></p>
-          <p class="card-text"><i class="fa-solid fa-person"></i> <%= car.number_of_seats %></p>
-          <p class="card-text"><%= car.description %></p>
-          <h5><%= link_to "Book it now !", car_path(car), class: "text-decoration-none btn btn-success" %></h5>
+      <div class="col-3 mb-3">
+        <div class="card card-yellow p-3 mb-2 h-100">
+          <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top border" %>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">
+              <%= link_to car.model, car_path(car), class: "text-decoration-none" %>
+            </h5>
+            <p class="card-text"><i class="fa-solid fa-dollar-sign"></i> <%= car.price_day %></p>
+            <p class="card-text"><i class="fa-solid fa-person"></i> <%= car.number_of_seats %></p>
+            <p class="card-text"><%= car.description %></p>
+            <div class="mt-auto">
+              <h5>
+                <%= link_to "Book it now!", car_path(car), class: "text-decoration-none btn btn-success w-100" %>
+              </h5>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
