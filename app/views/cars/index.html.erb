@@ -10,8 +10,8 @@
   <div class="row py-3">
     <% @cars.each do |car| %>
       <div class="col-md-4 col-lg-3 mb-4">
-        <div class="card bg-white shadow-sm border-0 rounded-3 h-100">
-          <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top rounded img-fluid" %>
+        <div class="card bg-white shadow-sm border-0 rounded-4 h-100">
+          <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top rounded-4 img-fluid" %>
           <div class="card-body text-center d-flex flex-column">
             <h5 class="card-title mb-2 font-weight-bold">
               <%= link_to car.model, car_path(car), class: "text-dark text-decoration-none" %>
