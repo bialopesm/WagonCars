@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="m-2">
-            <strong>Hello, <%= current_user.email %>!</strong>
+            <strong>Hello, <%= current_user.user_name %>!</strong>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
