@@ -19,33 +19,35 @@
 </div>
 
 <div class="container-fluid">
-<div class="row mt-3">
-  <div class="col-6">
-    <div class="card bg-white">
+<div class="row justify-content-evenly mt-3 ">
+  <div class="col-4">
+    <div class="card bg-white rounded-5">
 
       <div class="m-3 p-3">
         <h2 class="mb-3 pb-3">My Reservations</h2>
         <% if current_user.rentals.any? %>
           <% current_user.rentals.each do |rental| %>
-            <div class="mb-3">
-              <strong><%= rental.car.model %></strong>
-            </div>
+            <div class="card mb-3 p-3" style="height: 140px">
+              <div class="mb-3">
+                <strong><%= rental.car.model %></strong>
+              </div>
 
-            <!-- Date section with button aligned to the right -->
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <div>
-                <p>Pick up date: <%= rental.pickup_date %></p>
-                <p>Return date: <%= rental.delivered_date %></p>
+              <!-- Date section with button aligned to the right -->
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <p>Pick up date: <%= rental.pickup_date %></p>
+                  <p>Return date: <%= rental.delivered_date %></p>
+                </div>
+                <!-- Cancel button aligned to the right -->
+                <div>
+                  <%= link_to "Cancel",
+                  rental_path(rental),
+                  data: { turbo_method: :delete, turbo_confirm: "No refund!" },
+                  class: "btn border-danger rounded-5 hover-effect"
+                  %>
+                </div>
               </div>
-              <!-- Cancel button aligned to the right -->
-              <div>
-                <%= link_to "Cancel",
-                rental_path(rental),
-                data: { turbo_method: :delete, turbo_confirm: "No refund!" },
-                class: "btn btn-danger"
-                %>
-              </div>
-            </div>
+          </div>
 
           <% end %>
         <% else %>
@@ -54,8 +56,8 @@
       </div>
     </div>
   </div>
-  <div class="col-6">
-    <div class="card bg-white">
+  <div class="col-5">
+    <div class="card bg-white rounded-5">
 
     <div class="m-3 p-3">
       <h2>My Cars Rented :</h2>
@@ -90,7 +92,7 @@
   <div class="row p-3">
     <% current_user.cars.each do |car|%>
       <div class="col-6 mb-3">
-        <div class="card bg-white">
+        <div class="card bg-white ">
           <div class="row m-3">
             <div class="col-6">
               <div class="card shadow-sm">
@@ -110,11 +112,11 @@
               <%= cl_image_tag car.picture.key, width: 200, height: 150, crop: :fill, class: "card-img-top border" %>
               <p class="my-4"><strong>Description of your car : </strong><%= car.description %></p>
               <div class=" d-flex flex-column mt-auto">
-                <%= link_to 'Edit your car', edit_car_path(car), class: "btn btn-warning mb-2 rounded-5" %>
+                <%= link_to 'Edit your car', edit_car_path(car), class: "btn border-warning mb-2 text-color-warning rounded-5" %>
                 <%= link_to "Remove from our website",
                 car_path(car),
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                class: "btn btn-danger rounded-5"
+                class: "btn border-danger rounded-5"
                 %>
               </div>
             </div>
