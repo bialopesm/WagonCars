@@ -12,6 +12,10 @@
 
 # login = User.new(user_name: 'bialopesm', email: 'usuario@exemple.com', password: '123456')
 # login.save!
+Car.destroy_all
+User.destroy_all
+
+
 user1 = User.new(user_name: 'bialopesm', email: 'bia@exemple.com', password: 123456)
 user1.save!
 
@@ -24,7 +28,8 @@ user3.save!
 user4 = User.new(user_name: 'Hurrem24', email: 'jana@exemple.com', password: 123456)
 user4.save!
 
-Car.destroy_all
+
+
 
 file1 = URI.parse("https://hips.hearstapps.com/hmg-prod/images/challenger3-image3-rbsl-1200x800px-65b2a6e1154db.png").open
 car1 = Car.new(
@@ -40,7 +45,7 @@ car1 = Car.new(
   description: "Good to solve problems with your neighbors.",
   latitude: 40.7128,
   longitude: -74.0060,
-  user_id: 1
+  user: user1
 )
 
 car1.picture.attach(io: file1, filename: "tank.png", content_type: "image/png")
@@ -60,7 +65,7 @@ car2 = Car.new(
   description: "Good to save Gotham City.",
   latitude: 29.7604,
   longitude: -95.3698,
-  user_id: 1
+  user: user2
 )
 
 car2.picture.attach(io: file2, filename: "batmobile.jpg", content_type: "image/jpg")
@@ -82,7 +87,7 @@ car3 = Car.new(
   description: "The faster car for your races",
   latitude: -22.908333,
   longitude: -43.196388,
-  user_id: 2
+  user: user3
 )
 
 car3.picture.attach(io: file3, filename: "mcqueen.jpg", content_type: "image/jpg")
@@ -104,7 +109,7 @@ car4 = Car.new(
   description: "The best friendly car!",
   latitude: -23.533773,
   longitude: -46.625290,
-  user_id: 2
+  user: user4
 )
 
 car4.picture.attach(io: file4, filename: "herbie.jpg", content_type: "image/jpg")
@@ -125,7 +130,7 @@ car5= Car.new(
   description: "Feel the emotion of a champion!",
   latitude: -23.533773,
   longitude: -46.625290,
-  user_id: 10
+  user: user1
 )
 
 car5.picture.attach(io: file5, filename: "ayrton_senna.jpg", content_type: "image/jpg")
@@ -146,7 +151,7 @@ car6= Car.new(
   description: "Go to the beach with your friends!",
   latitude: -22.908333,
   longitude: -43.196388,
-  user_id: 10
+  user: user2
 )
 
 car6.picture.attach(io: file6, filename: "kombi.jpg", content_type: "image/jpg")
@@ -168,7 +173,7 @@ car7= Car.new(
   description: "Perfect to solve mysterious problems!",
   latitude: -22.908333,
   longitude: -43.196388,
-  user_id: 10
+  user: user3
 )
 
 car7.picture.attach(io: file7, filename: "machine.jpg", content_type: "image/jpg")
@@ -190,7 +195,7 @@ car8= Car.new(
   description: "For the beautiful girls!",
   latitude: -22.908333,
   longitude: -43.196388,
-  user_id: 10
+  user: user4
 )
 
 car8.picture.attach(io: file8, filename: "pennelope.jpg", content_type: "image/jpg")
@@ -211,7 +216,7 @@ car9 = Car.new(
   description: "Good to fix mistakes!",
   latitude: 40.7128,
   longitude: -74.0060,
-  user_id: 10
+  user: user1
 )
 
 car9.picture.attach(io: file9, filename: "future.jpg", content_type: "image/jpg")
@@ -232,7 +237,7 @@ car10 = Car.new(
   description: "Use in all the roads!",
   latitude: 40.7128,
   longitude: -74.0060,
-  user_id: 10
+  user: user2
 )
 
 car10.picture.attach(io: file10, filename: "monster.jpg", content_type: "image/jpg")
@@ -253,7 +258,7 @@ car11 = Car.new(
   description: "Enjoy your role in San Andres!",
   latitude: 40.7128,
   longitude: -74.0060,
-  user_id: 10
+  user: user3
 )
 
 car11.picture.attach(io: file11, filename: "gtacar.jpg", content_type: "image/jpg")
@@ -274,7 +279,7 @@ car12 = Car.new(
   description: "Good to win any race!",
   latitude: 40.7128,
   longitude: -74.0060,
-  user_id: 10
+  user: user4
 )
 
 car12.picture.attach(io: file12, filename: "mario.jpg", content_type: "image/jpg")
