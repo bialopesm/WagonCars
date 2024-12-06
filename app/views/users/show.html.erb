@@ -1,10 +1,11 @@
-
 <div class="bg-black">
+
 
   <div class="d-flex mb-3 pt-3">
     <%= link_to cars_path, class: "btn btn-ghost text-white" do %>
       <i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i>
     <% end %>
+
 
     <h1 class="mx-3 text-white">My profile</h1>
   </div>
@@ -38,10 +39,10 @@
               </div>
               <!-- Cancel button aligned to the right -->
               <div>
-                <%= link_to "Cancel reservation",
+                <%= link_to "Cancel",
                 rental_path(rental),
-                data: { turbo_method: :delete, turbo_confirm: "There is no refund for this reservation! Are you sure?" },
-                class: "btn btn-danger rounded-5"
+                data: { turbo_method: :delete, turbo_confirm: "No refund!" },
+                class: "btn btn-danger"
                 %>
               </div>
             </div>
@@ -106,18 +107,14 @@
               </div>
             </div>
             <div class="d-flex flex-column col-6">
-              <% if car.picture.attached? %>
-                <%= cl_image_tag car.picture.key, width: 200, height: 150, class: "card-img-top border img-fit" %>
-              <%else%>
-                <%= image_tag "default_car.jpg", width: 200, height: 150, class: "card-img-top border img-fit"%>
-              <% end %>
-              <p class="my-4"><strong>Description of your car: </strong><%= car.description %></p>
-              <div class="d-flex flex-column mt-auto">
+              <%= cl_image_tag car.picture.key, width: 200, height: 150, crop: :fill, class: "card-img-top border" %>
+              <p class="my-4"><strong>Description of your car : </strong><%= car.description %></p>
+              <div class=" d-flex flex-column mt-auto">
                 <%= link_to 'Edit your car', edit_car_path(car), class: "btn btn-warning mb-2 rounded-5" %>
                 <%= link_to "Remove from our website",
-                  car_path(car),
-                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                  class: "btn btn-danger rounded-5"
+                car_path(car),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                class: "btn btn-danger rounded-5"
                 %>
               </div>
             </div>
