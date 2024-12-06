@@ -14,6 +14,9 @@
                   <img src="https://img.freepik.com/free-vector/by-my-car-illustration-concept_114360-831.jpg"
                     alt="Car Owner" class="img-fluid mb-3">
                   <p class="small text-center">List your car on WagonCars and start earning. It’s simple and secure to share your car with trusted users.</p>
+                  <div class="d-flex justify-content-center">
+                    <%= link_to 'Put your car to rent!', new_user_session_path, class: "btn btn-primary rounded-5" %>
+                  </div>
               </div>
           </div>
 
@@ -23,14 +26,13 @@
                   <img src="https://png.pngtree.com/png-clipart/20200701/original/pngtree-searching-buy-and-rent-car-flat-illustration-png-image_5426813.jpg"
                     alt="Car Renter" class="img-fluid mb-3">
                   <p class="small text-center">Looking for a car to rent? Find a variety of vehicles that suit your needs and budget, all in one place.</p>
+                  <div class="d-flex justify-content-center">
+                    <%= link_to 'Rent a car now!', new_user_session_path, class: "btn btn-primary rounded-5" %>
+                  </div>
               </div>
           </div>
       </div>
-  </div>
 
-  <footer class="bg-dark text-white py-2" style="position: absolute; bottom: 0; width: 100%;">
-      <div class="container text-center">
-          <p class="small">&copy; 2024 WagonCars. All rights reserved.</p>
-      </div>
-  </footer>
+
+  </div>
 </div>

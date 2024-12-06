@@ -3,7 +3,7 @@ class Car < ApplicationRecord
   has_many :rentals, dependent: :destroy
   has_one_attached :picture
 
-  CATEGORIES = ['Compact', 'Minicompact', 'Midsize', 'Large', 'Minivan', 'Small SUV', 'SUV']
+  CATEGORIES = ['Compact', 'Classic','Minicompact', 'Midsize', 'Large', 'Minivan', 'Small SUV', 'SUV']
   FUELS = ['Gasoline', 'Alcohol', 'Diesel', 'Biodiesel', 'Natural gas', 'Electric', 'Hydrogen', 'Hybrid']
 
   validates :model, :year, :category, :location, :color, :fuel, :number_of_seats, :price_day, :description, presence: true
