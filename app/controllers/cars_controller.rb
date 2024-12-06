@@ -31,7 +31,8 @@ class CarsController < ApplicationController
       lat: @car.latitude,
       lng: @car.longitude
 
-    }]
+      }]
+    @rental = @car.rentals.build
   end
 
   def update

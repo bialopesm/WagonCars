@@ -1,4 +1,3 @@
-
 <%= simple_form_for(car) do |f| %>
   <%= f.input :model, placeholder: "Ex.: Honda, CiberTruck, Mitsubishi..." %>
   <%= f.input :year, placeholder: "Ex.: 1995, 2000...." %>
@@ -10,5 +9,5 @@
   <%= f.input :price_day, placeholder: "$" %>
   <%= f.input :description, placeholder: "Ex.: leather seats, insuranse...." %>
   <%= f.input :picture %>
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class: "btn btn-dark w-100" %>
 <% end %>

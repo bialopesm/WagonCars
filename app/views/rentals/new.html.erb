@@ -1,31 +1,28 @@
-<div>
-  <header class="bg-dark text-white py-2">
-  <%= link_to cars_path, class: "btn btn-ghost" do %>
-  <i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i>    <% end %>
-  <div class="container text-start">
-    <h1 class="mb-4 text-center">Create a Reservation</h1>
+<div class="bg-dark text-white py-2">
+  <div class="d-flex mb-3 pt-3">
+  <%= link_to cars_path, class: "btn btn-ghost text-white" do %>
+    <i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i>
+  <% end %>
+  <h1 class="mx-3 text-white">Create a Reservation</h1>
   </div>
-  </header>
 </div>
 
 <div class="container mt-5 d-flex justify-content-center">
-      <div data-controller="calculator">
-        <%= simple_form_for([@car, @rental], data: { unavailable_dates: @car.unavailable_dates.to_json }) do |f| %>
+  <div class="card bg-white shadow-sm p-4" data-controller="calculator">
+    <%= simple_form_for([@car, @rental], data: { unavailable_dates: @car.unavailable_dates.to_json }) do |f| %>
 
-          <div class="mb-3">
-            <%= f.input :pickup_date, as: :string, label: "Pickup Date", input_html: { class: "form-control", data: { calculator_target: 'startDate', controller: "datepicker", action: "change->calculator#updateTotalPrice" } } %>
-          </div>
-
-          <div class="mb-3">
-            <%= f.input :delivered_date, as: :string, label: "Delivered Date", input_html: { class: "form-control", data: { calculator_target: 'endDate', controller: "datepicker", action: "change->calculator#updateTotalPrice" } } %>
-          </div>
-
-          <p class="mb-2">Price per day: <span data-calculator-target="pricePerDay"><%= @car.price_day %></span></p>
-          <p class="mb-4">Total price: <span data-calculator-target="totalprice">0</span></p>
-
-          <%= f.submit "Create a rental", class:"btn btn-dark w-100" %>
-        <% end %>
+      <div class="mb-3">
+        <%= f.input :pickup_date, as: :string, label: "Pickup Date", input_html: { class: "form-control", data: { calculator_target: 'startDate', controller: "datepicker", action: "change->calculator#updateTotalPrice" } } %>
       </div>
-    </div>
+
+      <div class="mb-3">
+        <%= f.input :delivered_date, as: :string, label: "Delivered Date", input_html: { class: "form-control", data: { calculator_target: 'endDate', controller: "datepicker", action: "change->calculator#updateTotalPrice" } } %>
+      </div>
+
+      <p class="mb-2">Price per day: <span data-calculator-target="pricePerDay"><%= @car.price_day %></span></p>
+      <p class="mb-4">Total price: <span data-calculator-target="totalprice">0</span></p>
+
+      <%= f.submit "Create a rental", class:"btn btn-dark w-100" %>
+    <% end %>
   </div>
 </div>

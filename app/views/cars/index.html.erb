@@ -1,16 +1,17 @@
 <div class="top">
-<header class="bg-dark text-white py-4">
+<header class="bg-black text-white py-4">
     <div class="container text-center">
         <h1>WagonCars</h1>
         <p>Drive the car of your dreams</p>
     </div>
 </header>
+
 <div class="container-fluid">
   <div class="row py-3">
     <% @cars.each do |car| %>
       <div class="col-md-4 col-lg-3 mb-4">
-        <div class="card bg-white shadow-sm border-0 rounded h-100">
-          <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top rounded" %>
+        <div class="card bg-white shadow-sm border-0 rounded-3 h-100">
+          <%= cl_image_tag car.picture.key, width: 400, height: 300, crop: :fill, class: "card-img-top rounded img-fluid" %>
           <div class="card-body text-center d-flex flex-column">
             <h5 class="card-title mb-2 font-weight-bold">
               <%= link_to car.model, car_path(car), class: "text-dark text-decoration-none" %>
@@ -23,7 +24,7 @@
             </p>
             <p class="card-text text-muted small"><%= car.description %></p>
             <div class="mt-auto">
-              <%= link_to "Book it now!", car_path(car), class: "btn btn-dark w-100 py-2 mt-3" %>
+              <%= link_to "Book it now!", car_path(car), class: "btn btn-dark rounded-5 w-100 py-2 mt-3" %>
             </div>
           </div>
         </div>

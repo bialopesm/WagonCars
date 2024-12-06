@@ -1,60 +1,74 @@
-
-<div class="mt-3">
-  <%= link_to cars_path, class: "btn btn-ghost" do %>
-    <i class="fa-solid fa-arrow-left"></i>
-  <% end %>
+<div class="bg-black py-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <%= link_to cars_path, class: "btn btn-ghost text-white d-flex align-items-center" do %>
+      <i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i>
+    <% end %>
+    <h1 class="mx-3 text-white text-center flex-grow-1"><%= @car.model %></h1>
+    <div class="btn btn-ghost text-white invisible">
+      <i class="fa-solid fa-arrow-left fa-2xl"></i>
+    </div>
+  </div>
 </div>
 
-<div class="container mt-5">
-  <h1 class="mb-3"><strong><%= @car.model %></strong></h1>
-
-</div>
 <div class="container">
+
   <div class="row mt-3">
     <div class="col-md-8">
       <% if @car.picture.attached? %>
-        <div class="mb-3 h-100">
-          <%= cl_image_tag @car.picture.key, class: "img-fluid rounded w-100 h-100 shadow-sm" %>
+        <div class="card bg-white shadow-sm">
+          <%= cl_image_tag @car.picture.key, class: "img-fluid w-100", style: "max-height: 435px; object-fit: cover;" %>
         </div>
       <% end %>
     </div>
 
-  <div class="col-md-4">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h3 class="text-center"><strong>Details</strong></h3>
-        <p><i class="fa-solid fa-car-side"></i> <%= @car.model %></p>
-        <p><i class="fa-regular fa-calendar-days"></i> <%= @car.year %></p>
-        <p><i class="fa-solid fa-palette"></i> <%= @car.color %></p>
-        <p><i class="fa-solid fa-layer-group"></i> <%= @car.category %></p>
-        <p><i class="fa-solid fa-location-dot"></i> <%= @car.location %></p>
-        <p><i class="fa-solid fa-gas-pump"></i> <%= @car.fuel %></p>
-        <p><i class="fa-solid fa-person"></i> <%= @car.number_of_seats %> seats </p>
-        <p><i class="fa-solid fa-user"></i> <%= @car.user.email %></p>
-        <p><i class="fa-solid fa-file-lines"></i> <%= @car.description %></p>
+    <div class="col-md-4">
+      <div class="card bg-white shadow-sm">
+        <div class="card-body">
+          <h3 class="text-center"><strong>Details</strong></h3>
+          <p><i class="fa-solid fa-car-side"></i> <%= @car.model %></p>
+          <p><i class="fa-regular fa-calendar-days"></i> <%= @car.year %></p>
+          <p><i class="fa-solid fa-palette"></i> <%= @car.color %></p>
+          <p><i class="fa-solid fa-layer-group"></i> <%= @car.category %></p>
+          <p><i class="fa-solid fa-location-dot"></i> <%= @car.location %></p>
+          <p><i class="fa-solid fa-gas-pump"></i> <%= @car.fuel %></p>
+          <p><i class="fa-solid fa-person"></i> <%= @car.number_of_seats %> seats </p>
+          <p><i class="fa-solid fa-user"></i> <%= @car.user.email %></p>
+          <p><i class="fa-solid fa-file-lines"></i> <%= @car.description %></p>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="row mt-3">
     <div class="col-md-8 text-center">
-      <h3 class="text-center"><strong><i class="fa-solid fa-dollar-sign"></i> / day</strong></h3>
-      <p>$<%= @car.price_day %></p>
+      <div class="card mb-3">
+        <div style="width: 100%; height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @marker.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
     </div>
 
     <div class="col-md-4">
-      <%= link_to 'Make a reservation', new_car_rental_path(@car.id), class: "btn btn-dark btn-lg" %>
-    </div>
+      <div class="card bg-white shadow-sm p-4" data-controller="calculator">
+        <h3 class="text-center"><strong>Create a Reservation</strong></h3>
+        <h5 class="mb-2 text-center"><strong>$ / day: <span data-calculator-target="pricePerDay"><%= @car.price_day %></strong></span></h5>
+        <%= simple_form_for([@car, @rental], data: { unavailable_dates: @car.unavailable_dates.to_json }) do |f| %>
 
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @marker.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          <div class="mb-3">
+            <%= f.input :pickup_date, as: :string, label: "Pickup Date", input_html: { class: "form-control", data: { calculator_target: 'startDate', controller: "datepicker", action: "change->calculator#updateTotalPrice" } } %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.input :delivered_date, as: :string, label: "Delivered Date", input_html: { class: "form-control", data: { calculator_target: 'endDate', controller: "datepicker", action: "change->calculator#updateTotalPrice" } } %>
+          </div>
+
+          <p class="mb-4">Total price: <span data-calculator-target="totalprice">0</span></p>
+
+          <%= f.submit "Create a rental", class:"btn btn-dark w-100" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
-
-<div style="width: 100%; height: 600px; margin-top: 20px;"
-    data-controller="map"
-    data-map-markers-value="<%= @marker.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
