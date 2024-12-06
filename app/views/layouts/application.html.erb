@@ -12,8 +12,19 @@
   </head>
 
   <body class="bg-beige">
-    <%= render "shared/flashes" %>
-    <%= render "shared/navbar" %>
-    <%= yield %>
+    <div class='d-flex flex-column min-vh-100'>
+      <%= render "shared/flashes" %>
+      <%= render "shared/navbar" %>
+      <article class="flex-grow-1">
+      <%= yield %>
+      </article>
+
+      <footer class="bg-dark text-white py-2">
+        <div class="container text-center">
+            <p class="small">&copy; 2024 WagonCars. All rights reserved.</p>
+        </div>
+      </footer>
+
+    </div>
   </body>
 </html>
