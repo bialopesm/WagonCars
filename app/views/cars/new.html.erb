@@ -1,15 +1,18 @@
-  <div>
-    <header class="bg-dark text-white py-2">
-    <%= link_to cars_path, class: "btn btn-ghost" do %>
-    <i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i>    <% end %>
-    <div class="container text-start">
-      <h1 class="text-center mb-4">Add your car to rent!</h1>
-    </div>
-    </header>
+<div class="bg-black py-2">
+  <div class="d-flex mb-3 pt-3">
+    <%= link_to cars_path, class: "btn btn-ghost text-white" do %>
+      <i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i>
+    <% end %>
+    <h1 class="mx-3 text-white">Add your car to rent!</h1>
   </div>
+</div>
 
-<div class="container mt-5">
-  <div class="card shadow-sm p-4">
-    <%= render "form", car: @car %>
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card bg-white shadow-sm p-4">
+        <%= render "form", car: @car %>
+      </div>
+    </div>
   </div>
 </div>
