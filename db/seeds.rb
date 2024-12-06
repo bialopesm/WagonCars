@@ -7,10 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
 # Criando o usuário (caso necessário)
 
 # login = User.new(user_name: 'bialopesm', email: 'usuario@exemple.com', password: '123456')
 # login.save!
+user1 = User.new(user_name: 'bialopesm', email: 'bia@exemple.com', password: 123456)
+user1.save!
+
+user2 = User.new(user_name: 'Nominoe-dev', email: 'nominoe@exemple.com', password: 123456)
+user2.save!
+
+user3 = User.new(user_name: 'canechiagui', email: 'guilherme@exemple.com', password: 123456)
+user3.save!
+
+user4 = User.new(user_name: 'Hurrem24', email: 'jana@exemple.com', password: 123456)
+user4.save!
 
 Car.destroy_all
 
@@ -28,7 +40,7 @@ car1 = Car.new(
   description: "Good to solve problems with your neighbors.",
   latitude: 40.7128,
   longitude: -74.0060,
-  user_id: 10
+  user_id: 1
 )
 
 car1.picture.attach(io: file1, filename: "tank.png", content_type: "image/png")
@@ -48,7 +60,7 @@ car2 = Car.new(
   description: "Good to save Gotham City.",
   latitude: 29.7604,
   longitude: -95.3698,
-  user_id: 10
+  user_id: 1
 )
 
 car2.picture.attach(io: file2, filename: "batmobile.jpg", content_type: "image/jpg")
@@ -70,7 +82,7 @@ car3 = Car.new(
   description: "The faster car for your races",
   latitude: -22.908333,
   longitude: -43.196388,
-  user_id: 10
+  user_id: 2
 )
 
 car3.picture.attach(io: file3, filename: "mcqueen.jpg", content_type: "image/jpg")
@@ -92,12 +104,11 @@ car4 = Car.new(
   description: "The best friendly car!",
   latitude: -23.533773,
   longitude: -46.625290,
-  user_id: 10
+  user_id: 2
 )
 
 car4.picture.attach(io: file4, filename: "herbie.jpg", content_type: "image/jpg")
 car4.save
-
 
 
 file5 = URI.parse("https://cdn-4.motorsport.com/images/amp/2QzKJ5mY/s1000/rob-garofall-mclaren-mp4-4.jpg").open
