@@ -1,4 +1,9 @@
-.hover-effect:hover {
-  text-decoration: underline;
-  color: #0056b3; /* Adjust hover color */
+.hover-effect-red:hover {
+  color: white; /* Adjust hover color */
+  background-color: red;
+}
+
+.hover-effect-orange:hover {
+  color: white; /* Adjust hover color */
+  background-color: orange;
 }
